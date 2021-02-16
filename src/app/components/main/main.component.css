@@ -1,0 +1,72 @@
+.ol-popup {
+  position: relative;
+  background-color: rgb(240, 255, 249);
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #070153;
+  bottom: 12px;
+  left: 50px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.pop-up__box {
+  display: flex;
+  justify-content: space-around;
+}
+.button__visit {
+  width: 50px;
+  height: 20px;
+}
+.pop-up__box--side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#popup-content__name {
+  align-self: center;
+  font-size: 25px;
+  color: #070153;
+  font-weight: bold;
+}
+#popup-content__subName {
+  align-self: center;
+  font-size: 15px;
+}
+#popup-content__producer {
+  margin: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+#popup-content__img {
+  margin: 20px;
+  width: 80px;
+  height: auto;
+}
+.map1 {
+  margin: 37px 0px;
+
+  width: auto;
+}
+
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.ol-popup-closer:after {
+  content: "✖";
+}
+@media screen and (min-width: 600px) {
+  .map1 {
+    margin: 37px;
+
+    width: auto;
+  }
+}

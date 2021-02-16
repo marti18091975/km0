@@ -1,0 +1,121 @@
+<div class="main">
+  <div class="list-products__box" *ngIf="!productSelected">
+      <div class="list-products__title">Els teus productes</div>
+      <div class="list-products__group" >
+          <div class="product__box"*ngFor="let product of productsUser">
+              <div class="product__box--up">
+                  <div class="product__name">{{product.name}}</div>
+                  <div class="product__subName">{{product.subName}}</div>
+              </div>
+              <div class="product__box--down">
+                  <div class="product__box--down-sideLeft">
+                      <div class="product__active" *ngIf="product.active==='true'">actiu</div>
+                      <div class="product__noActive" *ngIf="product.active==='false'">inactiu</div>
+                      <button class="product__select" (click)="editProductSelected(product._id)">editar</button>
+                  </div>
+                  <div class="product__box--down-sideRight">
+                      <img class="product__image" src="{{product.urlImage}}" *ngIf="product.urlImage">
+                      <img class="product__image" src="../../../assets/iconDefault.svg" *ngIf="!product.urlImage"/>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <a class="edit-link link-first"[routerLink]="['/main']">Tornar</a>
+  </div>
+  <div class="edit-product__group" *ngIf="productSelected">
+    
+      <form
+        id="userProductForm"
+        class="edit-product__box"
+        [formGroup]="userProductForm"
+        (ngSubmit)="onSubmit()"
+      >
+      <div class="edit-product__side">
+        
+          <div class="input__form">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" formControlName="name" [(ngModel)]="productSelected.name" required/>
+          </div>
+          <div class="input__form">
+            <label for="subtitol">subtítol</label>
+            <input type="text" name="subtitol" formControlName="subName" [(ngModel)]="productSelected.subName"  />
+          </div>
+          <div class="input__form">
+            <label for="descripcio">Descripció</label>
+            <input type="text" name="descripcio" formControlName="description" [(ngModel)]="productSelected.description" required />
+          </div>
+          <div class="input__form">
+            <label for="preu">Preu</label>
+            <input type="text" name="preu" required formControlName="price" [(ngModel)]="productSelected.price" />
+          </div>
+          <div class="input__form">
+              <label for="active">Estat</label>
+              <select id="active" class="input__form--select" form="userProductForm" formControlName="active"name="active" >
+                <option value="true">actiu</option>            
+                <option value="false">inactiu</option>
+                </select>
+              </div>
+              
+            </div>
+            <div class="edit-product__side">
+          <div class="input__form">
+            <label for="type">Classe</label>
+            <select id="type" class="input__form--select" form="userProductForm" name="type"formControlName="type" >
+              <option value="fruites i verdures">fruites i verdures</option>            
+              <option value="lactics">làctics</option>
+              <option value="begudes">begudes</option>
+              <option value="olis">olis</option>
+              <option value="carns">carns</option>
+              <option value="artesania">artesania</option>
+              <option value="altres">altres</option>
+            </select>
+          </div>
+          <form
+            [formGroup]="prodImgForm"
+            (ngSubmit)="fileUpload()"
+            style="margin-top: 40px"
+          >
+            <div class="product-image__title">Imatge del producte</div>
+            <div class="file">
+              <label class="file-label">
+              <input
+                class="file-input"
+                type="file"
+                name="resume"
+                formControlName="prodImg"
+                (change)="fileChange($event)"
+              />
+              </label>
+              <img class="imageEdit" *ngIf="URLPublic"src="{{ URLPublic }}" />
+              <img class="imageEdit" *ngIf="!URLPublic&&!productSelected.urlImage" src="../../../assets/iconDefault.svg" />
+              <img class="imageEdit"*ngIf="!URLPublic&&productSelected.urlImage"  src="{{productSelected.urlImage}}" />
+              <hr />
+              <progress
+                *ngIf="percentage > 0 && percentage < 100"
+                class="progress is-large is-success"
+                value="{{ percentage }}"
+                max="100"
+              >
+                {{ percentage }}%
+              </progress>
+              <button
+                
+                [disabled]="
+                  percentage > 0 && percentage < 100
+                "
+              >
+                pujar imatge
+              </button>
+              
+            </div>
+          </form>
+          <button type="submit" class="button__form">Enviar</button>
+        </div>
+      </form>
+      <a class="edit-link"[routerLink]="['/main']">Tornar</a>
+    
+  </div>
+</div>
+
+  
+  

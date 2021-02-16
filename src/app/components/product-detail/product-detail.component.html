@@ -1,0 +1,22 @@
+<div class="product">
+    <div class="product__main">
+    <div class="product__main--up">
+        <img src="{{product.urlImage}}" class="product__image">
+        <div class="product__main--up-section">
+            <div class="product__name">{{product.name}}</div>
+            <div class="product__subName">{{product.subName}}</div>
+            <div class="product__price" *ngIf="product.price">{{product.price}}</div>
+            </div>
+    </div>
+    <div class="product__main--down">
+        <div class="product__description" *ngIf="product.description">{{product.description}}</div>
+        <div class="product__producer">productor: {{product.producerName}}</div>
+        <button class="product__button" (click)="addNewItem($event)">Tornar</button>
+    </div>
+
+    </div>
+</div>
+
+
+
+

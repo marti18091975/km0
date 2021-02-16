@@ -1,0 +1,78 @@
+<div class="main">
+  <img src="assets/portrait.png" alt="" class="main__image" />
+  <div class="logIn">
+    
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="input__form">
+        
+        <input
+        class="login__box"
+          type="text"
+          name="email"
+          placeholder="e-mail"
+          #email="ngModel"
+          [(ngModel)]="user.email"
+          required
+        />
+        <small *ngIf="!email.valid && email.touched">
+          L'e-mail no és correcte
+        </small>
+      </div>
+      <div class="input__form">
+        
+        <input
+        class="login__box"
+          type="password"
+          name="password"
+          placeholder="contrassenya"
+          #password="ngModel"
+          [(ngModel)]="user.password"
+          required
+          pattern="[a-zA-Z]+"
+        />
+        <small *ngIf="!password.valid && password.touched">
+          La contrassenya no és correcte
+        </small>
+      </div>
+      <input
+        type="submit"
+        value="Accedir"
+        [disabled]="userForm.invalid"
+        class="button__form"
+      />
+    </form>
+    <div class="link__register">
+      <div style="color: gray">no estàs registrat?</div>
+      <a [routerLink]="['/register']" style="color: rgb(83, 35, 194)"
+        >clicka aquí</a
+      >
+    </div>
+    <div class="link__recuperar">
+      
+      <button class="button_recover" (click)="recoverPassword()" style="color: rgb(83, 35, 194);font-size:10px;"
+        >no recordes la contrassenya?</button
+      >
+    </div>
+    <div class="or">o accedeix amb</div>
+    <div class="button__section">
+      <button class="button__login" (click)="onGoogleLogin()">
+        <img
+          class="img__button"
+          src="https://www.flaticon.es/svg/static/icons/svg/2702/2702602.svg"
+        />
+      </button>
+      <button class="button__login" (click)="onFacebookLogin()">
+        <img
+          class="img__button"
+          src="https://www.flaticon.es/svg/static/icons/svg/733/733547.svg"
+        />
+      </button>
+      <button class="button__login" (click)="onAnonLogin()">
+        <img
+          class="img__button"
+          src="https://www.flaticon.es/svg/static/icons/svg/3143/3143088.svg"
+        />
+      </button>
+    </div>
+  </div>
+</div>

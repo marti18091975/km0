@@ -1,0 +1,82 @@
+<div class="main">
+  <div class="register">
+    <div class="title__register">Registre</div>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="input__form">
+        <label for="nom">Nom</label>
+        <input
+          type="text"
+          name="nom"
+          #name="ngModel"
+          [(ngModel)]="user.name"
+          required
+        />
+        <small *ngIf="!name.valid ">
+          indica el teu nom
+        </small>  
+      </div>
+      <div class="input__form">
+        <label for="email">E-mail</label>
+        <input
+          type="text"
+          name="email"
+          #email="ngModel"
+          [(ngModel)]="userL.email"
+          required
+        />
+        <small *ngIf="!email.valid && email.touched">
+          L'e-mail no és correcte
+        </small>
+      </div>
+      <div class="input__form">
+        <label for="password">Contrassenya</label>
+        <input
+          type="password"
+          name="password"
+          #password="ngModel"
+          [(ngModel)]="userL.password"
+          required
+          pattern="[a-zA-Z]+"
+        />
+        <small *ngIf="!password.valid && password.touched">
+          La contrassenya no és correcte
+        </small>
+      </div>
+      <div class="input__form">
+        <label for="password">Repeteix la contrassenya</label>
+        <input
+          type="password"
+          name="passwordR"
+          required
+          pattern="[a-zA-Z]+"
+          #passwordR="ngModel"
+          [(ngModel)]="userL.passwordR"
+        />
+        <small *ngIf="userL.password != userL.passwordR ">
+          La contrassenya no coincideix
+        </small>
+      </div>
+      <div class="input__form">
+        <label for="city">Població</label>
+        <input
+          type="text"
+          name="city"
+          required
+          #city="ngModel"
+          [(ngModel)]="user.city"
+        />
+        <small *ngIf="!city.valid ">
+          indica la teva població
+        </small> 
+        
+      </div>
+      <button
+        type="submit"
+        
+        [disabled]="registerForm.invalid"
+        class="button__form"
+      >Enviar</button>
+    </form>
+    <a class="register-link"href="http://localhost:4200">Tornar</a>
+  </div>
+</div>

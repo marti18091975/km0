@@ -1,0 +1,161 @@
+
+<div class="header__main" *ngIf="isShown">
+  <ul>
+    <li class="burger-menu__box">
+      <img
+      class="burger-menu__image"
+      src="../../../assets/menu.svg"
+      >
+        <ul >
+            <li><button class="burger-menu__button" (click)="editProfile()">Edició perfil</button></li>
+            <li><button class="burger-menu__button"(click)="createProduct()">Crear nou producte</button></li>
+            <li><button class="burger-menu__button"(click)="updateProduct()">Editar producte</button>
+            </li>
+            <li class="burger-menu__word--box">
+               
+               <button class="burger-menu__div">Filtrar per paraula</button>
+              <div class="burger-menu__word--finder">
+                <input type="text" class="burger-menu__word--finder-box"[(ngModel)]="wordToFind">
+                <button class="burger-menu__word--icon"(click)="findByTypes()">
+                  <img class="burger-menu__word--icon-img"src="../../../assets/buscar.svg">
+                </button>
+              </div>
+            
+            </li>
+            <li><button class="burger-menu__categories"(click)="push_sideNav()">Filtrar per categories</button>
+            
+                <ul id="sideNav" class="itam-2">
+                    <li class="sideNav__element"><button class="checkbox" (click)="selectFruits()">
+                      <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isFruitsSelected">
+                      <p class="checkbox__text">fruites i verdures</p>
+                    </button></li>
+                    <li class="sideNav__element"><button class="checkbox" (click)="selectMilk()">
+                      <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isMilkSelected">
+                      <p class="checkbox__text">làctics</p>
+                    </button></li>
+                    <li class="sideNav__element"><button class="checkbox" (click)="selectDrinks()">
+                      <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isDrinksSelected">
+                      <p class="checkbox__text">begudes</p>
+                    </button></li>
+                    <li class="sideNav__element">
+                      <button class="checkbox" (click)="selectArt()">
+                        <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isArtSelected">
+                        <p class="checkbox__text">artesania</p>
+                      </button>  
+                    </li>
+                    <li class="sideNav__element">
+                      <button class="checkbox" (click)="selectOil()">
+                        <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isOilSelected">
+                        <p class="checkbox__text">oli</p>
+                      </button>  
+                    </li>
+                    <li class="sideNav__element">
+                      <button class="checkbox" (click)="selectMeat()">
+                        <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isMeatSelected">
+                        <p class="checkbox__text">carns</p>
+                      </button> 
+                    </li>
+                </ul>
+            
+            </li>
+        </ul>
+    
+    </li>
+      
+    
+    <li><img src="../../../assets/logo.png" class="header__logo"></li>
+      <li class="finder__group">
+        
+          <div class="finder__word">
+            <input type="text" id="finder__word--box"class="finder__word--box"[(ngModel)]="wordToFind">
+            <button class="finder__word--icon"(click)="findByTypes()">
+              <img class="finder__word--icon-img"src="../../../assets/buscar.svg">
+            </button>
+          </div>
+          <div class="finder__category">
+            <button class="finder__category--icon icon-fruits"(click)="selectFruits()">
+              <img class="icon__image selected" src="../../../assets/healthy-food.svg"*ngIf="isFruitsSelected">
+              <img class="icon__image" src="../../../assets/healthy-foodbn.svg"*ngIf="!isFruitsSelected">
+            </button>
+            <button class="finder__category--icon icon-milk"(click)="selectMilk()">
+              <img class="icon__image selected" src="../../../assets/milk-bottle.svg"*ngIf="isMilkSelected">
+              <img class="icon__image" src="../../../assets/milk-bottlebn.svg"*ngIf="!isMilkSelected">
+             </button>
+            <button class="finder__category--icon icon-drink"(click)="selectDrinks()">
+              <img class="icon__image selected" src="../../../assets/liquor.png"*ngIf="isDrinksSelected">
+              <img class="icon__image" src="../../../assets/liquorbn.png"*ngIf="!isDrinksSelected">
+            </button>
+            <button class="finder__category--icon icon-art"(click)="selectArt()">
+              <img class="icon__image selected" src="../../../assets/hilo.png"*ngIf="isArtSelected">
+              <img class="icon__image" src="../../../assets/hilobn.png"*ngIf="!isArtSelected">
+            </button>
+            <button class="finder__category--icon icon-oil"(click)="selectOil()">
+              <img class="icon__image selected" src="../../../assets/petroleo.svg"*ngIf="isOilSelected">
+              <img class="icon__image" src="../../../assets/petroleobn.svg"*ngIf="!isOilSelected">
+            </button>
+            <button class="finder__category--icon icon-meat"(click)="selectMeat()">
+              <img class="icon__image selected" src="../../../assets/carne.png"*ngIf="isMeatSelected">
+              <img class="icon__image" src="../../../assets/carnebn.png"*ngIf="!isMeatSelected">
+            </button>
+            
+          </div>
+          
+            <div class="types__label" >categories</div>
+              <ul class="categories__box">
+                <li>
+                  <button class="checkbox" (click)="selectFruits()">
+                    <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isFruitsSelected">
+                    <p class="checkbox__text">fruites i verdures</p>
+                  </button>  
+                </li>
+                <li>
+                  <button class="checkbox" (click)="selectMilk()">
+                    <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isMilkSelected">
+                    <p class="checkbox__text">làctics</p>
+                  </button>  
+                </li>
+                <li>
+                  <button class="checkbox" (click)="selectDrinks()">
+                    <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isDrinksSelected">
+                    <p class="checkbox__text">begudes</p>
+                  </button>  
+                </li>
+                <li>
+                  <button class="checkbox" (click)="selectArt()">
+                    <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isArtSelected">
+                    <p class="checkbox__text">artesania</p>
+                  </button>  
+                </li>
+                <li>
+                  <button class="checkbox" (click)="selectOil()">
+                    <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isOilSelected">
+                    <p class="checkbox__text">oli</p>
+                  </button>  
+                </li>
+                <li>
+                  <button class="checkbox" (click)="selectMeat()">
+                    <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isMeatSelected">
+                    <p class="checkbox__text">carns</p>
+                  </button>  
+                </li>
+               </ul>
+            
+            
+        
+      </li>
+      <li>
+        <div class="header__user"*ngIf="user">
+          <img
+          class="header__user-image"
+          *ngIf="!user.urlImage"
+          src="https://www.flaticon.es/svg/static/icons/svg/2922/2922510.svg"
+        />
+        <img
+          class="header__user-image"
+          *ngIf="user.urlImage"
+          src="{{ user.urlImage }}"
+        />
+      </div>
+      </li>
+  </ul>
+</div>

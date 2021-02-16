@@ -1,0 +1,239 @@
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.list-products__title {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0px;
+  font-size: 25px;
+  color: rgb(6, 6, 87);
+  font-weight: bold;
+}
+.list-products__group {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product__box {
+  border: 2px solid rgb(2, 2, 77);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
+  width: 150px;
+  height: 150px;
+  background-color: rgb(232, 246, 249);
+  margin: 30px;
+  padding: 10px;
+}
+.product__box--up,
+.product__box--down-sideLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product__name {
+  font-size: 18px;
+  margin: 10px 10px 0px 10px;
+}
+.product__subName {
+  font-size: 15px;
+  margin: 5px;
+}
+.product__box--down {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.product__active {
+  font-size: 14px;
+  color: green;
+  margin-bottom: 5px;
+}
+.product__noActive {
+  font-size: 14px;
+  color: red;
+  margin-bottom: 5px;
+}
+.product__select {
+  font-size: 14px;
+}
+.product__image {
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+}
+
+.input__form--select {
+  margin-top: 0px;
+  width: 85%;
+  height: 100%;
+}
+.main__image {
+  width: 50%;
+  height: 80%;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 500px;
+  max-height: 500px;
+
+  margin: 50px 50px;
+  align-self: center;
+}
+.edit-link {
+  background-color: rgb(83, 35, 194);
+  color: white;
+  padding: 7px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  margin-left: 14px !important;
+  height: 16px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.button__section {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+.title__register,
+.title__login,
+.title__product {
+  font-size: 38px;
+  font-weight: bold;
+}
+.edit-product__form {
+  height: 100%;
+}
+.edit-product__form2 {
+  height: 75%;
+}
+.file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title__login {
+  margin: 0px;
+}
+.title__product {
+  margin-top: 10px;
+}
+.title__register {
+  margin: -30px 0px 20px 0px !important;
+}
+
+label {
+  margin: 10px 0px 5px 0px;
+}
+
+.edit-product__group {
+  margin: 20px 0px;
+  height: 739px;
+  width: 76%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(232, 246, 249);
+  border-radius: 1%;
+  padding: 10px;
+  box-shadow: 0px 1px 8px 2px rgb(75, 74, 74);
+}
+.edit-product__box {
+  margin: 20px 0px;
+  height: 737px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.edit-product__side {
+  display: flex;
+  flex-direction: column;
+}
+.input__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 270px;
+  height: 66px;
+}
+input {
+  width: 208px;
+  height: 35px;
+  padding-left: 10px;
+}
+
+form {
+  width: 250px;
+  height: 272px;
+  margin-top: 0px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-self: center;
+}
+.product-image__title {
+  margin-bottom: -51px;
+}
+.button__form {
+  margin-bottom: -73px !important;
+  margin-right: 19px;
+  align-self: flex-end;
+  width: 60px;
+  height: 30px;
+  padding: 6px;
+  background-color: rgb(83, 35, 194);
+  color: white;
+}
+.link__register {
+  display: flex;
+  margin-top: 10px;
+}
+.img__button {
+  width: 40px;
+  height: 40px;
+}
+.imageEdit {
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (min-width: 600px) {
+  .list-products__group {
+    margin-left: 6vw;
+  }
+}
+@media screen and (min-width: 800px) {
+  .edit-product__box {
+    flex-direction: row;
+    height: 282px;
+  }
+  .edit-product__group {
+    height: 66vh;
+    width: 600px;
+    margin-top: 50px;
+  }
+  .button__form {
+    margin-bottom: -88px !important;
+    margin-top: 43px;
+    margin-right: 19px;
+  }
+  .edit-link {
+    margin-top: 0px;
+    margin-left: 47px !important;
+    margin-bottom: -16px;
+  }
+
+  .list-products__group {
+    margin-left: 10vw;
+  }
+}

@@ -1,0 +1,94 @@
+<div class="main">
+  <div class="edit-profile__box">
+    <div class="title__edit">Perfil</div>
+    <form
+      class="edit-profile__group"
+      [formGroup]="userForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="edit-profile__side">
+        <div class="input__form">
+          <label for="nom">Nom</label>
+          <input type="text" name="nom" formControlName="name" [(ngModel)]="user.name" required />
+        </div>
+        <div class="input__form">
+          <h4>E-mail: {{ user.email }}</h4>
+        </div>
+
+        <div class="input__form">
+          <label for="cp">Localitat</label>
+          <input type="text" name="city" required formControlName="city" [(ngModel)]="user.city" />
+        </div>
+        <div class="input__form">
+          <label for="street">Carrer</label>
+          <input type="text" name="street" formControlName="street" [(ngModel)]="user.street" />
+        </div>
+        <div class="input__form">
+          <label for="number">Número</label>
+          <input type="number" name="number" formControlName="number" [(ngModel)]="user.number" />
+        </div>
+      </div>
+      
+      <div class="edit-profile__side">
+        <div class="input__form">
+          <label for="phone">Telèfon</label>
+          <input type="number" name="phone" formControlName="phone" [(ngModel)]="user.phone"/>
+        </div>
+        <div class="presentation__box input__form">
+          <label for="presentation">Presentació</label>
+          <textarea rows = "3" cols = "40" name = "presentation"formControlName="presentation" [(ngModel)]="user.presentation">
+          </textarea>
+        </div>
+        <form class="image__group"
+          [formGroup]="archivoForm"
+          (ngSubmit)="fileUpload()"
+          style="margin-top: 40px"
+        >
+          <div >Imatge de perfil</div>
+          <div class="file">
+            <label class="file-label">
+              <input
+                class="file-input"
+                type="file"
+                name="resume"
+                formControlName="archivo"
+                (change)="fileChange($event)"
+                style="margin-top:20px"
+              />
+              
+              
+            </label>
+            <img class="imageEdit" *ngIf="URLPublic"src="{{ URLPublic }}" />
+            <img class="imageEdit" *ngIf="!URLPublic&&!user.urlImage" src="https://www.flaticon.es/svg/static/icons/svg/2922/2922510.svg" />
+            <img class="imageEdit" *ngIf="!URLPublic&&user.urlImage" src="{{user.urlImage}}" />
+            <hr />
+            <progress
+              *ngIf="percentage > 0 && percentage < 100"
+              class="progress is-large is-success"
+              value="{{ percentage }}"
+              max="100"
+            >
+              {{ percentage }}%
+            </progress>
+            <button
+              [ngClass]="{
+                button: true,
+                'is-success': true,
+                'is-large': true,
+                'is-loading': percentage > 0 && percentage < 100
+              }"
+              [disabled]="
+                !archivoForm.valid && percentage > 0 && percentage < 100
+              "
+            >
+              Pujar arxiu
+            </button>
+            
+          </div>
+        </form>
+      </div>
+      <button type="submit" class="button__form">Enviar</button>
+    </form>
+    <a class="edit-link"[routerLink]="['/main']">Tornar</a>
+  </div>
+</div>

@@ -117,8 +117,13 @@
               "devServerTarget": "Km0:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Km0"
 }

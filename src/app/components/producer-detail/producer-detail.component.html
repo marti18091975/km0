@@ -1,0 +1,92 @@
+<div class="main__producer" *ngIf="!productId">
+    <div class="main__producer--main">
+        <div class="main__producer--sub">
+            <div class="producer__info">
+                <div class="producer__name"*ngIf="producer">{{producer.name}}</div>
+                <div class="producer__info--main">
+                    <div class="producer__box">
+                        <div class="producer__direction"*ngIf="producer">c/ {{producer.street}},{{producer.number}}</div>
+                        <div class="producer__direction"*ngIf="producer">{{producer.city}}</div>
+                        <div class="producer__phone"*ngIf="producer">Tf: {{producer.phone}}</div>
+                        <div class="producer__email"*ngIf="producer">E-mail: {{producer.email}}</div>
+                    </div>
+                    <img src="{{producer.urlImage}}" class="producer__info--main-image" *ngIf="producer&&producer.urlImage" >
+                    <img src="https://www.flaticon.es/svg/static/icons/svg/2922/2922510.svg" class="producer__info--main-image" *ngIf="producer&&!producer.urlImage" >
+                </div>
+                <div class="producer__info--extra">
+                    <div class="producer__presentation" *ngIf="producer&&producer.presentation">{{producer.presentation}}</div>
+                    <button (click)="comeback()" class="comeback__button">Tornar</button>
+                </div>
+            </div>
+            <div class="producer__products--main" *ngIf="productsFirstGroup">
+                <div class="producer__products--box"*ngFor="let product1 of productsFirstGroup">
+                    <div class="product__box--left">
+                        <input class="input__product" type="text"  value="{{product1._id}}">
+                        <div class="product__text">{{ product1.name }}</div>
+                        <div class="product__subText">{{ product1.subName }}</div>
+                        <div class="product__price">{{product1.price}}</div>
+                    </div>  
+                    <div class="product__box--right">
+                        <img src="{{product1.urlImage}}"class="product__image"*ngIf="product1.urlImage">
+                        <img src="https://www.flaticon.es/svg/static/icons/svg/1043/1043940.svg"class="product__image"*ngIf="!product1.urlImage">
+                    
+                        <button (click)="visitProduct(product1._id)" class="button-product">info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main__producer--second">
+            <div class="producer__products--second"*ngIf="productsSecondGroup">
+                <div class="producer__products--box"*ngFor="let product2 of productsSecondGroup">
+                    <div class="product__box--left">
+                        <input class="input__product" type="text"  value="{{product2._id}}">
+                        <div class="product__text">{{ product2.name }}</div>
+                        <div class="product__subText">{{ product2.subName }}</div>
+                        <div class="product__price">{{product2.price}}</div>
+                    </div>  
+                    <div class="product__box--right">
+                        <img src="{{product2.urlImage}}"class="product__image"*ngIf="product2.urlImage">
+                        <img src="https://www.flaticon.es/svg/static/icons/svg/1043/1043940.svg"class="product__image"*ngIf="!product2.urlImage">
+                    
+                        <button (click)="visitProduct(product2._id)" class="button-product">info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main__producer--third">
+        <div class="producer__products--third"*ngIf="productsThirdGroup">
+            <div class="producer__products--box"*ngFor="let product3 of productsThirdGroup">
+                <div class="product__box--left">
+                    <input class="input__product" type="text"  value="{{product3._id}}">
+                    <div class="product__text">{{ product3.name }}</div>
+                    <div class="product__subText">{{ product3.subName }}</div>
+                    <div class="product__price">{{product3.price}}</div>
+                </div>  
+                <div class="product__box--right">
+                    <img src="{{product3.urlImage}}"class="product__image"*ngIf="product3.urlImage">
+                    <img src="https://www.flaticon.es/svg/static/icons/svg/1043/1043940.svg"class="product__image"*ngIf="!product3.urlImage">
+                    <button (click)="visitProduct(product3._id)" class="button-product">info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main__producer--fourth">
+        <div class="producer__products--fourth"*ngIf="productsFourthGroup">
+            <div class="producer__products--box"*ngFor="let product4 of productsFourthGroup">
+                <div class="product__box--left">
+                    <input class="input__product" type="text"  value="{{product4._id}}">
+                    <div class="product__text">{{ product4.name }}</div>
+                    <div class="product__subText">{{ product4.subName }}</div>
+                    <div class="product__price">{{product4.price}}</div>
+                </div>  
+                <div class="product__box--right">
+                    <img src="{{product4.urlImage}}"class="product__image"*ngIf="product4.urlImage">
+                    <img src="https://www.flaticon.es/svg/static/icons/svg/1043/1043940.svg"class="product__image"*ngIf="!product4.urlImage">
+                    <button (click)="visitProduct(product4._id)" class="button-product">info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-product-detail [id]="productId" (newItemEvent)="addItem($event)" *ngIf="productId"></app-product-detail>
