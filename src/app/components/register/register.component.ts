@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './../../app.reducers';
 import * as userActions from './../../actions';
 import {Subscription} from 'rxjs';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
 
 
@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit,OnDestroy {
     
     this.authSvc.register(this.userL.email, this.userL.password).then((res) => {
       
-      if (res===0){swal(
+      if (res===0){swal.fire(
         'Email ja registrat',
         'L`email utilitzat en el registre ja consta com a registrat',
         'error'

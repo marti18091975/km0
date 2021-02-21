@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { Header } from './../../models/header.model';
 import * as HeaderActions from './../../actions/header-actions';
 import { AppState } from './../../app.state';
-import swap from 'sweetalert';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-intro',
@@ -75,9 +75,9 @@ export class IntroComponent implements OnInit {
   }
   recoverPassword(){
     
-    if(!this.user.email){swap('Inserta el teu e-mail','Per recuperar la contrassenya cal que insertis el teu e-mail','error');
+    if(!this.user.email){swal.fire('Inserta el teu e-mail','Per recuperar la contrassenya cal que insertis el teu e-mail','error');
     }else{this.authSvc.recoverPassword(this.user.email).then((res)=>{
-      res===0?swap('El teu e-mail no està registrat','clicka a registre per crear un nou usuari amb aquest e-mail','error'):swap('Mira el teu correu','has rebut un e-mail per restablir la contrassenya','success')
+      res===0?swal.fire('El teu e-mail no està registrat','clicka a registre per crear un nou usuari amb aquest e-mail','error'):swal.fire('Mira el teu correu','has rebut un e-mail per restablir la contrassenya','success')
     })}
 
     }

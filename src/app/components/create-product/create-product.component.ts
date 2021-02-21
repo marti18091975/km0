@@ -16,7 +16,7 @@ import { AppState } from '../../app.reducers';
 import * as productActions from '../../actions';
 import { Update } from '@ngrx/entity';
 import {User} from '../../models/user.model';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
@@ -169,7 +169,7 @@ export class CreateProductComponent implements OnInit,OnDestroy {
           
           
         },(error)=>{
-          swal('Error al cargar la imatge','torna a cargar la imatge, hi ha hagut un problema amb el servidor','error');
+          swal.fire('Error al cargar la imatge','torna a cargar la imatge, hi ha hagut un problema amb el servidor','error');
         });
       }
     });

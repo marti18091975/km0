@@ -16,7 +16,7 @@ import { AppState } from '../../app.reducers';
 import * as productActions from '../../actions';
 import { Update } from '@ngrx/entity';
 import {User} from '../../models/user.model';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-product',
@@ -142,7 +142,7 @@ export class EditProductComponent implements OnInit,OnDestroy {
           
           
         },(error)=>{
-          swal('Error al cargar la imatge','torna a cargar la imatge, hi ha hagut un problema amb el servidor','error');
+          swal.fire('Error al cargar la imatge','torna a cargar la imatge, hi ha hagut un problema amb el servidor','error');
         });
       }
     });

@@ -15,7 +15,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../app.reducers';
 import * as userActions from '../../actions';
 import { Update } from '@ngrx/entity';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
 
 @Component({
@@ -139,7 +139,7 @@ export class EditProfileComponent implements OnInit,OnDestroy {
           
           
         },(error)=>{
-          swal('Error al cargar la imatge','torna a cargar la imatge, hi ha hagut un problema amb el servidor','error');
+          swal.fire('Error al cargar la imatge','torna a cargar la imatge, hi ha hagut un problema amb el servidor','error');
         });
       }
     });

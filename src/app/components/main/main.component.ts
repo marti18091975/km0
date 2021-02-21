@@ -48,7 +48,7 @@ import {
   DragRotateAndZoom,
   defaults as defaultInteractions,
 } from 'ol/interaction';
-import swal from "sweetalert";
+import swal from "sweetalert2";
 
 
 
@@ -137,7 +137,7 @@ export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
               this.unsubscriber();
               if(!coordinates || coordinates.length===0){
                 
-                swal('dades incorrectes',"el nom del municipi, del carrer y/o el número són incorrectes, modifica'ls a edició de perfil",'error');
+                swal.fire('dades incorrectes',"el nom del municipi, del carrer y/o el número són incorrectes, modifica'ls a edició de perfil",'error');
               }
               else{
                 this.lat=coordinates[0].lat;
@@ -227,7 +227,7 @@ export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
         this.error = true;
       });
     }else{
-      swal('sense conexió','sembla que no podem connectar amb el servidor','error');
+      swal.fire('sense conexió','sembla que no podem connectar amb el servidor','error');
     }
     const container=document.getElementById('popup');
     const contentName=document.getElementById('popup-content__name');
