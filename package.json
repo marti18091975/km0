@@ -1,6 +1,6 @@
 {
-  "name": "km0",
-  "version": "0.0.0",
+  "name": "kmzero",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
