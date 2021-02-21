@@ -1,6 +1,9 @@
 {
   "name": "kmzero",
   "version": "0.0.1",
+  "engines":{
+    "node":"12.18.2"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
