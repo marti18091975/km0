@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   http: HttpClient;
-  private url = '/api';
+  private url = 'https://km-0.herokuapp.com/api';
   constructor(http: HttpClient) {
     this.http = http;
   }

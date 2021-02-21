@@ -12,28 +12,28 @@ import { Observable } from 'rxjs';
         this.http = http;
       }
       createProduct(product: Product): Observable<Product> {
-        return this.http.post<Product>('/api/product', {
+        return this.http.post<Product>('https://km-0.herokuapp.com/api/product', {
           product
         });
       }
       getProducts(): Observable<Product[]> {
         
-        return this.http.get<Product[]>('/api/product');
+        return this.http.get<Product[]>('https://km-0.herokuapp.com/api/product');
       }
       updateProduct(productId: string | number, changes: Partial<Product>): Observable<any> {
-        return this.http.put(`/api/product/byId/${productId}`, changes);
+        return this.http.put(`https://km-0.herokuapp.com/api/product/byId/${productId}`, changes);
       }
       
       getProduct(productKey) {
-        return this.http.get(`/api/product/byId/${productKey}`);
+        return this.http.get(`https://km-0.herokuapp.com/api/product/byId/${productKey}`);
       }
       getProductsByCity(city:string):Observable<Product[]>{
-        return this.http.get<Product[]>(`/api/product/byCity/${city}`);
+        return this.http.get<Product[]>(`https://km-0.herokuapp.com/api/product/byCity/${city}`);
       }
       getProductsByProducerEmail(email:string):Observable<Product[]>{
-        return this.http.get<Product[]>(`/api/product/byProducer/${email}`);
+        return this.http.get<Product[]>(`https://km-0.herokuapp.com/api/product/byProducer/${email}`);
       }
       getProductsByUserEmail(email:string):Observable<Product[]>{
-        return this.http.get<Product[]>(`/api/product/byUser/${email}`);
+        return this.http.get<Product[]>(`https://km-0.herokuapp.com/api/product/byUser/${email}`);
       }
   }

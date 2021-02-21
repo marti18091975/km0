@@ -1,15 +1,13 @@
 {
   "name": "km0",
-  "version": "1.0",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node Km0.backend/app.js",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall":"ng build --aot --prod",
-    "heroku-postbuild":"ng build --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +28,7 @@
     "@types/ol": "^6.4.2",
     "@xtream/firebase-ngrx-user-management": "^3.0.1",
     "firebase": "^8.1.1",
+    "mongodb": "^3.6.4",
     "ngrx-forms": "^6.3.3",
     "ol": "^6.4.3",
     "reselect": "^4.0.0",

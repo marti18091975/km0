@@ -123,10 +123,11 @@ export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
       this.userSubscription=this.store.select('user').subscribe(({ user }) => {
         setTimeout(()=>{
           this.userSubscription.unsubscribe();
-        })
+        },500)
         this.user = user;
         
           this.error=false;
+        
           if(this.user){
             if (this.user.number===null)this.user.number=0;
             this.store.dispatch(actions.getCoordinates({city:this.user.city,street:this.user.street,number:this.user.number}));
@@ -171,7 +172,7 @@ export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
                           scale=0.04;
                           break;
                     case'begudes':
-                          iconType="../../../assets/liquor.png";
+                          iconType="../../../assets/liquor.svg";
                           scale=0.06;
                           break;
                     case'olis':
@@ -179,11 +180,11 @@ export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
                           scale=0.06;
                           break;
                     case 'carns':
-                          iconType="../../../assets/carne.png";
+                          iconType="../../../assets/carne.svg";
                           scale=0.06;
                           break;
                     case 'artesania':
-                          iconType="../../../assets/hilo.png";
+                          iconType="../../../assets/hilo.svg";
                           scale=0.06;
                           break;
                     case 'altres':
