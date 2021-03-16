@@ -10,10 +10,12 @@ import {CreateProductComponent} from './components/create-product/create-product
 import { AuthGuard } from './guards/authGuard';
 import {ProducerDetailComponent} from './components/producer-detail/producer-detail.component';
 import {RedirectComponent} from './components/redirect/redirect.component';
+import {MainBisComponent} from './components/main-bis/main-bis.component';
 const appRoutes: Routes = [
   { path: '',component: IntroComponent  },
   { path: 'register', component: RegisterComponent },
   { path: 'main', component: MainComponent, canActivate: [AuthGuard] },
+  {path:'mainBis',component:MainBisComponent},
   { path: 'editProfile', component: EditProfileComponent },
   {path:'editProduct',component: EditProductComponent},
   {path:'createProduct',component:CreateProductComponent},

@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
   public isArtSelected:boolean=false;
   public isMeatSelected: boolean=false;
   public isOilSelected:boolean=false;
+  public isBreadSelected:boolean=false;
   public types:Types;
   public products:Product[];
   public productsFiltered:Product[]=[];
@@ -52,7 +53,8 @@ export class HeaderComponent implements OnInit {
       drinks:null,
       art:null,
       oil:null,
-      meat:null
+      meat:null,
+      bread:null
     }
   }
   selectFruits(){
@@ -81,6 +83,10 @@ export class HeaderComponent implements OnInit {
     this.isMeatSelected?this.isMeatSelected=false:this.isMeatSelected=true;
     this.isMeatSelected?this.itemsSelected++:this.itemsSelected--;
   }
+  selectBread(){
+    this.isBreadSelected?this.isBreadSelected=false:this.isBreadSelected=true;
+    this.isBreadSelected?this.itemsSelected++:this.itemsSelected--;
+  }
   findByTypes(){
     this.productsFiltered=[];
     this.wordToFind=(<HTMLInputElement>document.getElementById("finder__word--box")).value;
@@ -92,6 +98,7 @@ export class HeaderComponent implements OnInit {
       this.types.art=this.isArtSelected?true:false;
       this.types.oil=this.isOilSelected?true:false;
       this.types.meat=this.isMeatSelected?true:false;
+      this.types.bread=this.isBreadSelected?true:false;
     }
     
     
@@ -119,6 +126,9 @@ export class HeaderComponent implements OnInit {
                 break;
               case 'carns':
                 if (this.types.meat) this.productsFiltered.push(this.products[n]);
+                break;
+              case 'reposteria':
+                if (this.types.bread) this.productsFiltered.push(this.products[n]);
                 break;                 
             }
           }else{
@@ -142,7 +152,10 @@ export class HeaderComponent implements OnInit {
                   break;
                 case 'carns':
                   if (this.types.meat) this.productsFiltered.push(this.products[n]);
-                  break; 
+                  break;
+                case 'reposteria':
+                  if (this.types.bread) this.productsFiltered.push(this.products[n]);
+                  break;  
                                 
               }
 

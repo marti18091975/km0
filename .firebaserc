@@ -7,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "my-projectlost-1514119673507"
   }
 }

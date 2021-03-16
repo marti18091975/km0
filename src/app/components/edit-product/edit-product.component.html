@@ -15,12 +15,12 @@
                   </div>
                   <div class="product__box--down-sideRight">
                       <img class="product__image" src="{{product.urlImage}}" *ngIf="product.urlImage">
-                      <img class="product__image" src="../../../assets/iconDefault.svg" *ngIf="!product.urlImage"/>
+                      <img class="product__image" src="../../../assets/cesta.png" *ngIf="!product.urlImage"/>
                   </div>
               </div>
           </div>
       </div>
-      <a class="edit-link link-first"[routerLink]="['/main']">Tornar</a>
+      <a class="edit-link link-first"[routerLink]="['/mainBis']">Tornar</a>
   </div>
   <div class="edit-product__group" *ngIf="productSelected">
     
@@ -67,6 +67,7 @@
               <option value="olis">olis</option>
               <option value="carns">carns</option>
               <option value="artesania">artesania</option>
+              <option value="reposteria">reposteria</option>
               <option value="altres">altres</option>
             </select>
           </div>
@@ -87,7 +88,7 @@
               />
               </label>
               <img class="imageEdit" *ngIf="URLPublic"src="{{ URLPublic }}" />
-              <img class="imageEdit" *ngIf="!URLPublic&&!productSelected.urlImage" src="../../../assets/iconDefault.svg" />
+              <img class="imageEdit" *ngIf="!URLPublic&&!productSelected.urlImage" src="../../../assets/cesta.png" />
               <img class="imageEdit"*ngIf="!URLPublic&&productSelected.urlImage"  src="{{productSelected.urlImage}}" />
               <hr />
               <progress
@@ -112,7 +113,7 @@
           <button type="submit" class="button__form">Enviar</button>
         </div>
       </form>
-      <a class="edit-link"[routerLink]="['/main']">Tornar</a>
+      <a class="edit-link"[routerLink]="['/mainBis']">Tornar</a>
     
   </div>
 </div>

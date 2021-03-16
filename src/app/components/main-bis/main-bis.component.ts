@@ -50,15 +50,12 @@ import {
 } from 'ol/interaction';
 import swal from "sweetalert2";
 
-
-
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
-  providers: [AuthService],
+  selector: 'app-main-bis',
+  templateUrl: './main-bis.component.html',
+  styleUrls: ['./main-bis.component.css']
 })
-export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
+export class MainBisComponent implements OnInit ,AfterViewInit,OnDestroy {
   public lat: number;
   public lon: number;
   
@@ -121,61 +118,24 @@ export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
     
     this.email = await this.authSvc.getCurrentUser().email;
     if (this.email) {
-      
-      this.store.dispatch(actions.get_user_by_email({ email: this.email }));
-      
-      this.userSubscription=this.store.select('user').subscribe(({ user }) => {
-        this.user = user;
-        setTimeout(()=>{
-          
-          if(!this.user){
-            let userX: User = {
-              email: this.email,
-              _id: null,
-              name: null,
-              lat:0,
-              lon:0,          
-              city: null,
-              street: null,
-              number: null,
-              phone: null,
-              urlImage: null,
-              presentation:null
-            };
             
-            this.store.dispatch(actions.createUser({ user: userX }));
-          
-          }
-          this.userSubscription.unsubscribe();
-        },5000)
-        
-        setTimeout(() => {
-        if(this.user){
-            if (this.user.number===null)this.user.number=0;
-           
-            if(this.user.city===null){
-              swal.fire('indica la teva localitat','ves a edició de perfil per indicar la teva localitat','error');
-            }else{
-              setTimeout(() => {
-            this.store.dispatch(actions.getCoordinates({city:this.user.city,street:this.user.street,number:this.user.number}));
+            //this.store.dispatch(actions.getCoordinates({city:this.user.city,street:this.user.street,number:this.user.number}));
             setTimeout(() => {
             this.coordinateSubscription=this.store.select('coordinates').subscribe(({coordinates})=>{
               
-              
+              setTimeout(()=> this.coordinateSubscription.unsubscribe());
               if(!coordinates || coordinates.length===0){
-                setTimeout(() => {
+                
                 swal.fire('dades incorrectes',"el nom del municipi, del carrer y/o el número són incorrectes, modifica'ls a edició de perfil",'error');
-                },5000);
               }
               else{
-                setTimeout(()=> this.coordinateSubscription.unsubscribe());
                 this.lat=coordinates[0].lat;
                 this.lon=coordinates[0].lon;
                 this.zoom=16;
                 this.map1.getView().setCenter(olProj.transform([this.lon,this.lat],'EPSG:4326', 'EPSG:3857'));
                 this.map1.getView().setZoom(this.zoom);
                 setTimeout(() => {
-                this.store.dispatch(actions.getProductsByCity({city:this.user.city}));
+                //this.store.dispatch(actions.getProductsByCity({city:this.user.city}));
               this.productSubscription=this.store.select('product').subscribe(({ products }) => {
                 this.productsFiltered?this.products=this.productsFiltered:this.products=products;
                 this.generateIcons(this.products);
@@ -183,16 +143,7 @@ export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
             },500);
             }
           })
-          },4000);
           },500);
-        }
-        }
-      },500);
-          
-        
-      },(error)=>{
-        console.log(error);
-      });
     }else{
       swal.fire('sense conexió','sembla que no podem connectar amb el servidor','error');
     }
@@ -276,7 +227,7 @@ export class MainComponent implements OnInit, AfterViewInit,OnDestroy {
   private setSize(): void {
     if (this.mapEl) {
       const styles = this.mapEl.style;
-      styles.height =  '561px';
+      styles.height =  '560px';
      
     }
   }
@@ -389,5 +340,4 @@ function coerceCssPixelValue(value: any): string {
   }
   return cssUnitsPattern.test(value) ? value : `${value}px`;
 }
-
-
+ 

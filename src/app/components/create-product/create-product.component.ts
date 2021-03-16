@@ -93,8 +93,12 @@ export class CreateProductComponent implements OnInit,OnDestroy {
   
 
   onSubmit() {
+    if(this.user.city!="Ullastrell"){
+      swal.fire('El teu municipi no està registrat','no pots crear productes perquè el teu municipi no té contractats els serveis','error');
+    }else{
     const { name, subName, type, description, price} = this.productForm.value;
     this.store.dispatch(productActions.getCoordinates({city:this.user.city,street:this.user.street,number:this.user.number}));
+    setTimeout(() => {
     this.coordinateSubscription=this.store.select('coordinates').subscribe(({coordinates})=>{
       this.product.producerLongitude=coordinates[0].lon;
       this.product.producerLatitude=coordinates[0].lat;
@@ -119,15 +123,18 @@ export class CreateProductComponent implements OnInit,OnDestroy {
       };
   
       this.store.dispatch(productActions.updateProduct({ update }));
-      setTimeout(() => {
-        this.productSubscription.unsubscribe();
-        this.redirect();
-      });
     })
+  },500);
+  setTimeout(() => {
+    this.productSubscription.unsubscribe();
+    this.store.dispatch(productActions.getProductsByCity({city:this.user.city}));
+    this.redirect();
+  },1000);
        
   }
+}
   redirect() {
-    this.router.navigate(['/main']);
+    this.router.navigate(['/mainBis']);
   }
   public prodImgChange(event) {
     if (event.target.files.length > 0) {

@@ -19,6 +19,16 @@ export interface CoordinateState  {
       ...state,
       isLoading: false,
       error: { url: payload.url, name: payload.name, message: payload.message },
+    })),
+    on(coordinateActions.getCurrentCoordinates, (state) => (state.coordinates)),
+    on(coordinateActions.getCurrentCoordinatesSuccess, (state, { coordinates }) => ({
+      ...state,
+      coordinates
+    })),
+    on(coordinateActions.getCurrentCoordinatesFailure, (state, { payload }) => ({
+      ...state,
+      isLoading: false,
+      error: { url: payload.url, name: payload.name, message: payload.message },
     }))
   );
   export function coordinateReducer(state,action){

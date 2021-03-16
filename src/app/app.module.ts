@@ -29,6 +29,7 @@ import { ProducerDetailComponent } from './components/producer-detail/producer-d
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
+import { MainBisComponent } from './components/main-bis/main-bis.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CreateProductComponent } from './components/create-product/create-produ
     ProductDetailComponent,
     RedirectComponent,
     CreateProductComponent,
+    MainBisComponent,
   ],
   imports: [
     CommonModule,

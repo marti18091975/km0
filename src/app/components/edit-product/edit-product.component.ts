@@ -32,6 +32,7 @@ export class EditProductComponent implements OnInit,OnDestroy {
   public email:any;
   public emailSubscription:Subscription;
   public productsListSubscription:Subscription;
+  public userSubscription:Subscription;
   public userProductForm: FormGroup
   public fileMessage = '';
   public dataForm = new FormData();
@@ -40,6 +41,7 @@ export class EditProductComponent implements OnInit,OnDestroy {
   public percentage = 0;
   public ended = false;
   public errorMessage: string;
+  public user:User;
   constructor(private store: Store<AppState>,private fb: FormBuilder,private firebaseStorage: FirebaseStorageService){}
   ngOnInit() {
     this.emailSubscription=this.store.select('user').subscribe((user)=>{
@@ -100,7 +102,12 @@ export class EditProductComponent implements OnInit,OnDestroy {
     }, 500);
   }
   redirect(){
+    this.userSubscription=this.store.select('user').subscribe(({ user }) => {
+      this.user=user;
+      this.store.dispatch(productActions.getProductsByCity({city:this.user.city}));
+    },(error)=>console.log(error));
     this.productSelected=null;
+
   }
   public fileChange(event) {
     if (event.target.files.length > 0) {

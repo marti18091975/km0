@@ -1,6 +1,4 @@
 .main {
-  height: 605px !important;
-
   display: flex;
   justify-content: space-around;
 }
@@ -85,7 +83,7 @@ label {
 }
 
 .register {
-  margin: 20px;
+  margin: 20px !important;
   width: 250px;
   display: flex;
   flex-direction: column;

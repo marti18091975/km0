@@ -5,4 +5,5 @@ export interface Types{
     art:boolean;
     oil:boolean;
     meat:boolean;
+    bread:boolean;
 }

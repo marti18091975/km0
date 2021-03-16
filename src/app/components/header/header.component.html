@@ -22,7 +22,7 @@
               </div>
             
             </li>
-            <li><button class="burger-menu__categories"(click)="push_sideNav()">Filtrar per categories</button>
+            <li class="burger-menu__categories--box"><button class="burger-menu__categories"(click)="push_sideNav()">Filtrar per categories</button>
             
                 <ul id="sideNav" class="itam-2">
                     <li class="sideNav__element"><button class="checkbox" (click)="selectFruits()">
@@ -53,6 +53,12 @@
                       <button class="checkbox" (click)="selectMeat()">
                         <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isMeatSelected">
                         <p class="checkbox__text">carns</p>
+                      </button> 
+                    </li>
+                    <li class="sideNav__element">
+                      <button class="checkbox" (click)="selectBread()">
+                        <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isBreadSelected">
+                        <p class="checkbox__text">reposteria</p>
                       </button> 
                     </li>
                 </ul>
@@ -97,6 +103,10 @@
               <img class="icon__image selected" src="../../../assets/carne.svg"*ngIf="isMeatSelected">
               <img class="icon__image" src="../../../assets/carnebn.svg"*ngIf="!isMeatSelected">
             </button>
+            <button class="finder__category--icon icon-meat"(click)="selectBread()">
+              <img class="icon__image selected" src="../../../assets/un-pan.svg"*ngIf="isBreadSelected">
+              <img class="icon__image" src="../../../assets/un-panbn.svg"*ngIf="!isBreadSelected">
+            </button>
             
           </div>
           
@@ -137,6 +147,12 @@
                     <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isMeatSelected">
                     <p class="checkbox__text">carns</p>
                   </button>  
+                </li>
+                <li>
+                  <button class="checkbox" (click)="selectBread()">
+                    <img class="checkbox__selected" src="../../../assets/comprobar.svg" *ngIf="isBreadSelected">
+                    <p class="checkbox__text">reposteria</p>
+                  </button> 
                 </li>
                </ul>
             

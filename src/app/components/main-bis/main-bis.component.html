@@ -1,0 +1,22 @@
+<div id="popup" class="ol-popup"*ngIf="!producerEmail">
+    <div id="popup-content__name" class="pop-up__name"></div>
+    <div id="popup-content__subName"></div>
+    <div class="pop-up__box">
+      <div class="pop-up__box--side">
+        <div>
+          <div>productor:</div>
+          <div id="popup-content__producer"></div>
+        </div>
+        <button class="button__visit" (click)="visitProducer()">visitar</button>
+      </div>
+      <img id="popup-content__img">
+    </div>
+  </div>
+  
+  
+  
+   <div id="map1" class="map1"*ngIf="!producerEmail" > </div>
+   <app-producer-detail [email]="producerEmail"*ngIf="producerEmail"></app-producer-detail>
+  
+  
+

@@ -97,7 +97,7 @@ export class EditProfileComponent implements OnInit,OnDestroy {
     }, 500);
   }
   redirect() {
-    this.router.navigate(['/main']);
+    this.router.navigate(['/mainBis']);
   }
   public fileChange(event) {
     if (event.target.files.length > 0) {

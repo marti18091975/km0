@@ -42,6 +42,7 @@
                 <option value="olis">olis</option>
                 <option value="carns">carns</option>
                 <option value="artesania">artesania</option>
+                <option value="reposteria">reposteria</option>
                 <option value="altres">altres</option>
               </select>
             </div>
@@ -64,7 +65,7 @@
                   />
                   </label>
                   <img class="imagecreate" *ngIf="URLPublic"src="{{ URLPublic }}" />
-                  <img class="imagecreate" *ngIf="!URLPublic&&!product.urlImage" src="https://www.flaticon.es/svg/static/icons/svg/1043/1043940.svg" />
+                  <img class="imagecreate" *ngIf="!URLPublic&&!product.urlImage" src="../../../assets/cesta.png" />
                   <img class="imagecreate" *ngIf="!URLPublic&&product.urlImage" src="{{product.urlImage}}" />
                   <hr />
                   <progress
@@ -95,6 +96,6 @@
               <button type="submit" class="button__form">Enviar</button>
             </form>
           
-    <a class="create-link"[routerLink]="['/main']">Tornar</a>
+    <a class="create-link"[routerLink]="['/mainBis']">Tornar</a>
   </div>
 </div>
